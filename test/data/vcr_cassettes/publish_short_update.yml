@@ -1,0 +1,74 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://api.twitter.com:443/1/statuses/update.json
+    body: status=Q
+    headers:
+      accept:
+      - application/json
+      user-agent:
+      - Twitter Ruby Gem 1.6.2
+      authorization:
+      - OAuth oauth_consumer_key="asdf", oauth_nonce="985cf51243695bc587f6479993a1d2e7",
+        oauth_signature="9b46RWCL6W4CMWUkaNOIw5e1eS0%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1323841034", oauth_token="abcd", oauth_version="1.0"
+      content-type:
+      - application/x-www-form-urlencoded
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 401
+      message: Unauthorized
+    headers:
+      date:
+      - Wed, 14 Dec 2011 05:37:17 GMT
+      status:
+      - 401 Unauthorized
+      www-authenticate:
+      - OAuth realm="https://api.twitter.com"
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '75'
+      cache-control:
+      - no-cache, max-age=300
+      set-cookie:
+      - _twitter_sess=BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7AA%253D%253D--1164b91ac812d853b877e93ddb612b7471bebc74;
+        domain=.twitter.com; path=/; HttpOnly
+      - guest_id=v1%3A132384103773526626; domain=.twitter.com; path=/; expires=Fri,
+        13-Dec-2013 17:37:17 GMT
+      - k=10.34.123.128.1323841037730265; path=/; expires=Wed, 21-Dec-11 05:37:17
+        GMT; domain=.twitter.com
+      expires:
+      - Wed, 14 Dec 2011 05:42:17 GMT
+      vary:
+      - Accept-Encoding
+      server:
+      - tfe
+    body: ! '{"error":"Invalid \/ expired Token","request":"\/1\/statuses\/update.json"}'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: http://rstatus.superfeedr.com:80/
+    body: hub.mode=publish&hub.url=http%3a%2f%2ffoo.example.com%2ffeeds%2f4ee8360a627d7312e4000dd1.atom
+    headers:
+      content-type:
+      - application/x-www-form-urlencoded
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 204
+      message: No Content
+    headers:
+      date:
+      - Wed, 14 Dec 2011 05:38:30 GMT
+      status:
+      - 204 No Content
+      x-runtime:
+      - '2'
+      set-cookie:
+      - ''
+      cache-control:
+      - no-cache
+    body: !!null 
+    http_version: '1.1'
